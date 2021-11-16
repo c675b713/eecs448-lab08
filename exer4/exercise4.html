@@ -33,23 +33,26 @@
     
         <h4>Input hex values (00-FF) to change the color of the outline (do not add #)</h4>
     <div class="hex-outline">
-        <input type="text" id="hex-outline">
+        <input type="text" id="hex-outline" placeholder="000000">
+        <input type="text" id="outline-size" placeholder="3">
         <input type="submit" onclick="changeOutline()" value="Submit">
     </div>
     <h4>Input hex values (00-FF) to change the color of the background (do not add #)</h4>
     <div class="hex-background">
-        <input type="text" id="hex-background">
+        <input type="text" id="hex-background" placeholder="000000">
         <input type="submit" onclick="changeBackground()" value="Submit">
     </div>
 
     <script>
         function changeOutline(){
             let inputO= document.getElementById("hex-outline").value;
+            let inputS = document.getElementById("outline-size").value;
             if(inputO.length > 6){
                 alert("Hex value cannot exceed six characters");
             }
             else{
                 document.getElementById("paragraph").style.outlineColor = "#"+inputO;
+                document.getElementById("paragraph").style.outlineWidth = inputS+"px";
             }  
         }
         function changeBackground(){
