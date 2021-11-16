@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <title>Slide Show</title>
+</head>
+<body>
+    <!-- 
+        Webpage that has a single img tag and two buttons labeled "previous" and "next".
+            * containts at least 5 pictures of your choice
+            * cycle through all photos
+            * wrap around the beginning if I keep pushing next
+            * wrap around to end if I keep pushing previous
+            * force images to be all same size regardless of original image files' dimensions
+    -->
+    <h4>Slide Show</h4>
+    <div class="img-container">
+        <img class="myImg" src="../../lab08/exer2/img/cat_1.jpg">
+        <img class="myImg" src="../../lab08/exer2/img/cat_2.jpg">
+        <img class="myImg" src="../../lab08/exer2/img/cat_3.jpg">
+        <img class="myImg" src="../../lab08/exer2/img/cat_4.jpg">
+        <img class="myImg" src="../../lab08/exer2/img/cat_5.jpg">
+    </div>
+    
+    <button id="previous" onclick="sliderPlus(-1)">Previous</button>
+    <button id="next" onclick="sliderPlus(+1)">Next</button>
+
+
+    <script>
+        var next = document.getElementById("next");
+        var prev = document.getElementById("prev");
+
+        var i = 1;
+        slider(i);
+
+        function sliderPlus(n){
+            slider(i += n);
+        }
+
+        function slider(n) {
+            var curr;
+            var x = document.getElementsByClassName("myImg");
+            if(n>x.length){
+                i = 1;
+            }
+            if(n < 1){
+                i = x.length;
+            }
+            for(curr = 0; curr < x.length; curr++){
+                x[curr].style.display = "none";
+            }
+            x[i - 1].style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
