@@ -31,13 +31,43 @@
         magnam, tempora quam reprehenderit quidem ex possimus at veniam, culpa nam inventore optio eligendi eos 
         vitae tenetur fuga. Quasi quam voluptate quisquam corrupti! Qui veniam ex at esse?</p>
     
-    <div>
-        <label for="psw">Password</label>
-        <input type="text" name="psw" id="psw" required>
+        <h4>Input rgb values to change the color of the outline</h4>
+    <div class="rgb-outline">
+        <label>Red: </label>
+        <input type="range" name="red" id="red-o" value="0" min="0" max="255">
+        <label">Green: </label>
+        <input type="text" name="green" id="green-o" value="0" min="0" max="255">
+        <label>Blue: </label>
+        <input type="text" name="blue" id="blue-o" value="0" min="0" max="255">
+        <input type="submit" onclick="changeOutline()" value="Submit">
+    </div>
+    <h4>Input rgb values to change the color of the background</h4>
+    <div class="rgb-background">
+        <label>Red: </label>
+        <input type="range" name="red" id="red-o" value="0" min="0" max="255">
+        <label">Green: </label>
+        <input type="text" name="green" id="green-o" value="0" min="0" max="255">
+        <label>Blue: </label>
+        <input type="text" name="blue" id="blue-o" value="0" min="0" max="255" >
+        <input type="submit" onclick="changeOutline()" value="Submit">
     </div>
 
     <script>
+        function changeOutline(){
+            let inputR = document.getElementById("red-o").value;
+            let inputG = document.getElementById("green-o").value;
+            let inputB = document.getElementById("blue-o").value;
+            let colorOut = 'rgb(' + inputR + ',' + inputG + ',' + inputB +')';
+            document.paragraph.style.outlineColor = colorOut;
+        }
 
+        function changeBackground(){
+            let inputRb = document.getElementById("red-b").value;
+            let inputGb = document.getElementById("green-b").value;
+            let inputBb = document.getElementById("blue-b").value;
+            let colorBack = 'rgb(' + inputRb + ',' + inputGb + ',' + inputBb +')';
+            document.paragraph.style.backgroundColor = colorBack;
+        }
     </script>
         
 
